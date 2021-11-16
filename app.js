@@ -9,9 +9,20 @@ app.engine('hbs', engine({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 app.set("views", "./views")
 
-
 app.get('/', (req, res) => {
   res.render('index')
+})
+
+app.get('/about', (req, res) => {
+  res.render('about')
+})
+
+app.get('/portfolio', (req, res) => {
+  res.render('portfolio')
+})
+
+app.get('/contact', (req, res) => {
+  res.render('contact')
 })
 
 app.listen(port, () => {
