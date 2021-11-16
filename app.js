@@ -10,19 +10,39 @@ app.set('view engine', 'hbs')
 app.set("views", "./views")
 
 app.get('/', (req, res) => {
-  res.render('index')
+  const buttons = [
+    { name: 'About', isActive: false },
+    { name: 'Portfolio', isActive: false },
+    { name: 'Contact', isActive: false }
+  ]
+  res.render('index', { buttons })
 })
 
-app.get('/about', (req, res) => {
-  res.render('about')
+app.get('/About', (req, res) => {
+  const buttons = [
+    { name: 'About', isActive: true },
+    { name: 'Portfolio', isActive: false },
+    { name: 'Contact', isActive: false }
+  ]
+  res.render('about', { buttons })
 })
 
-app.get('/portfolio', (req, res) => {
-  res.render('portfolio')
+app.get('/Portfolio', (req, res) => {
+  const buttons = [
+    { name: 'About', isActive: false },
+    { name: 'Portfolio', isActive: true },
+    { name: 'Contact', isActive: false }
+  ]
+  res.render('portfolio', { buttons })
 })
 
-app.get('/contact', (req, res) => {
-  res.render('contact')
+app.get('/Contact', (req, res) => {
+  const buttons = [
+    { name: 'About', isActive: false },
+    { name: 'Portfolio', isActive: false },
+    { name: 'Contact', isActive: true }
+  ]
+  res.render('contact', { buttons })
 })
 
 app.listen(port, () => {

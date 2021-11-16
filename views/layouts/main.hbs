@@ -10,7 +10,21 @@
 </head>
 
 <body>
-  {{{ body }}}
+  <header>
+    <div class="container">
+      <a class="btn" href="/">回到首頁</a>
+      <nav class="navbar">
+        {{#each buttons}}
+        <a class="btn {{#if this.isActive}}active{{/if}}" href="/{{this.name}}">
+          {{this.name}}
+        </a>
+        {{/each}}
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    {{{ body }}}
+  </div>
 </body>
 
 </html>
