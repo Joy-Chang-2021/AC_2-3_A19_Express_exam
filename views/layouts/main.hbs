@@ -14,7 +14,7 @@
     <div class="container">
       <a class="btn" href="/">回到首頁</a>
       <nav class="navbar">
-        {{#each buttons}}
+        {{#each navButtons}}
         <a class="btn {{#if this.isActive}}active{{/if}}" href="/{{this.name}}">
           {{this.name}}
         </a>

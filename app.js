@@ -2,6 +2,11 @@ import express from 'express';
 import { engine } from 'express-handlebars';
 const app = express();
 const port = 3000
+const navButtons = [
+  { name: 'About', isActive: false },
+  { name: 'Portfolio', isActive: false },
+  { name: 'Contact', isActive: false }
+]
 
 app.use(express.static('public'))
 
@@ -10,39 +15,26 @@ app.set('view engine', 'hbs')
 app.set("views", "./views")
 
 app.get('/', (req, res) => {
-  const buttons = [
-    { name: 'About', isActive: false },
-    { name: 'Portfolio', isActive: false },
-    { name: 'Contact', isActive: false }
-  ]
-  res.render('index', { buttons })
+  for (let i = 0; i < navButtons.length; i++) navButtons[i].isActive = false
+  res.render('index', { navButtons })
 })
 
 app.get('/About', (req, res) => {
-  const buttons = [
-    { name: 'About', isActive: true },
-    { name: 'Portfolio', isActive: false },
-    { name: 'Contact', isActive: false }
-  ]
-  res.render('about', { buttons })
+  for (let i = 0; i < navButtons.length; i++) navButtons[i].isActive = false
+  navButtons[0].isActive = true
+  res.render('about', { navButtons })
 })
 
 app.get('/Portfolio', (req, res) => {
-  const buttons = [
-    { name: 'About', isActive: false },
-    { name: 'Portfolio', isActive: true },
-    { name: 'Contact', isActive: false }
-  ]
-  res.render('portfolio', { buttons })
+  for (let i = 0; i < navButtons.length; i++) navButtons[i].isActive = false
+  navButtons[1].isActive = true
+  res.render('portfolio', { navButtons })
 })
 
 app.get('/Contact', (req, res) => {
-  const buttons = [
-    { name: 'About', isActive: false },
-    { name: 'Portfolio', isActive: false },
-    { name: 'Contact', isActive: true }
-  ]
-  res.render('contact', { buttons })
+  for (let i = 0; i < navButtons.length; i++) navButtons[i].isActive = false
+  navButtons[2].isActive = true
+  res.render('contact', { navButtons })
 })
 
 app.listen(port, () => {
