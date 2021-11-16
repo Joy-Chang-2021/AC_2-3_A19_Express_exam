@@ -1,6 +1,11 @@
-header {
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+header .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 nav {
@@ -19,7 +24,7 @@ nav {
   text-decoration: none;
 }
 
-.btn .active {
+.active {
   color: white;
   background-color: black;
 }
