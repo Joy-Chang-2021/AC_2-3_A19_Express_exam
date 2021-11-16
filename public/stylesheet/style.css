@@ -1,0 +1,25 @@
+header {
+  display: flex;
+  justify-content: space-around;
+}
+
+nav {
+  display: flex;
+}
+
+.btn {
+  margin: 0 2px;
+  width: 100px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: lightgrey;
+  line-height: 35px;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+
+.btn .active {
+  color: white;
+  background-color: black;
+}
